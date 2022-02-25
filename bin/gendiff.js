@@ -1,13 +1,15 @@
 #!/usr/bin/env node
-import { Command } from "commander";
+import { Command } from 'commander/esm.mjs';
+import genDiff from '../src/index.js';
 
 const program = new Command();
 
 program
-.description('Compares two configuration files and shows a difference')
-.helpOption('-h, --HELP', 'read more information')
-.version('0.0.1', '-V, --vers', 'output the current version')
-.option('-f --format <type>','output format')
-.argument('<filepath1> <filepath2>')
+  .version('0.0.1', '-V, --version', 'output the version number')
+  .description('Compares two configuration files and shows a difference.')
+  .option('-f, --format [type]', 'output format', 'stylish')
+  .arguments('<filepath1> <filepath2>')
+  .action((filepath1, filepath2, { format }) => {
+    console.log(genDiff(filepath1, filepath2, format));
+  });
 program.parse();
-
