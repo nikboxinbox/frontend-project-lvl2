@@ -1,6 +1,6 @@
 # Makefile
-# gendiff:
-# 	node bin/gendiff.js
+gendiff:
+	node bin/gendiff.js
 install:
 	npm ci
 
@@ -11,8 +11,8 @@ publish:
 make lint:
 	npx eslint .
 
-make lint fix:
-	npx eslint --fix .
+# make lint fix:
+# 	npx eslint --fix .
 
 test:
 	NODE_OPTIONS=--experimental-vm-modules npx jest

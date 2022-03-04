@@ -1,6 +1,6 @@
 #!/usr/bin/env node
-import { Command } from 'commander/esm.mjs';
-import genDiff from '../src/index.js';
+import { Command } from 'commander/esm';
+import genDiff from '../src/index';
 
 const program = new Command();
 
@@ -10,6 +10,7 @@ program
   .option('-f, --format [type]', 'output format', 'stylish')
   .arguments('<filepath1> <filepath2>')
   .action((filepath1, filepath2, { format }) => {
+    // eslint-disable-next-line no-console
     console.log(genDiff(filepath1, filepath2, format));
   });
 program.parse();

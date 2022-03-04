@@ -1,7 +1,5 @@
-
-  
-import stylish from './stylish.js';
-import plain from './plain.js';
+import stylish from './stylish';
+import plain from './plain';
 
 export default (innerTree, format) => {
   switch (format) {
